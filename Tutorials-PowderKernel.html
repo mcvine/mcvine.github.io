@@ -23,6 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="mcvine 1.0 documentation" href="index.html" /> 
   </head>
   <body>
@@ -296,7 +297,7 @@ recognize it and will turn on the scattering process for the sample.</p>
 </div>
 <p><em>Al-scatterer.xml</em> configuration file describes the scattering process by defining
 the kernel. As mentioned above, we use <em>SimplePowderDiffractionKernel</em> for our experiment.
-We need to specify several parameters for the kernel: relative line width <span class="math">\Delta d/d</span>
+We need to specify several parameters for the kernel: relative line width <span class="math">\(\Delta d/d\)</span>
 (<tt class="docutils literal"><span class="pre">Dd_over_d</span></tt>), Debye-Waller factor (<tt class="docutils literal"><span class="pre">DebyeWaller_factor</span></tt>) and file containing
 information about the diffraction planes (<tt class="docutils literal"><span class="pre">peaks-py-path</span></tt>).</p>
 <p><strong>peaks.py</strong></p>
@@ -404,15 +405,15 @@ Python script <a class="reference external" href="http://dev.danse.us/trac/MCViN
 <p>Parameters <tt class="docutils literal"><span class="pre">q</span></tt> is a q-vector in reciprocal lattice related to lattice parameters and
 Miller indices (h,k,l). For orthorhombic lattice type q-vector can be simplified as follows:</p>
 <div class="math">
-<p><span class="math">\bold{q} = (2\pi h/a)\bold{i} + (2\pi k/b)\bold{j} + (2\pi l/c)\bold{k}</span></p>
-</div><p>with <tt class="docutils literal"><span class="pre">a</span></tt>, <tt class="docutils literal"><span class="pre">b</span></tt> and <tt class="docutils literal"><span class="pre">c</span></tt> being the lattice constants. For FCC lattice type it
+\[\bold{q} = (2\pi h/a)\bold{i} + (2\pi k/b)\bold{j} + (2\pi l/c)\bold{k}\]</div>
+<p>with <tt class="docutils literal"><span class="pre">a</span></tt>, <tt class="docutils literal"><span class="pre">b</span></tt> and <tt class="docutils literal"><span class="pre">c</span></tt> being the lattice constants. For FCC lattice type it
 can be even further simplified to:</p>
 <div class="math">
-<p><span class="math">\bold{q} = 2\pi/a(h\bold{i} + k\bold{j} + l\bold{k})</span></p>
-</div><p>so that the magnitude of the q-vector will be:</p>
+\[\bold{q} = 2\pi/a(h\bold{i} + k\bold{j} + l\bold{k})\]</div>
+<p>so that the magnitude of the q-vector will be:</p>
 <div class="math">
-<p><span class="math">q = (2\pi/a)\sqrt{h^2 + k^2 + l^2}</span></p>
-</div><p>Parameter <tt class="docutils literal"><span class="pre">F_squared</span></tt> is the squared structure factor corresponding to <tt class="docutils literal"><span class="pre">|F(hkl)|</span></tt> in <em>Al.laz</em> file:</p>
+\[q = (2\pi/a)\sqrt{h^2 + k^2 + l^2}\]</div>
+<p>Parameter <tt class="docutils literal"><span class="pre">F_squared</span></tt> is the squared structure factor corresponding to <tt class="docutils literal"><span class="pre">|F(hkl)|</span></tt> in <em>Al.laz</em> file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">F_squared</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">hkl</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
 </pre></div>
 </div>
