@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ARCS &mdash; mcvine 1.0 documentation</title>
+    <title>Simulation of ARCS experiments &mdash; mcvine 1.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -53,7 +53,6 @@
              accesskey="I">index</a></li>
         <li><a href="http://mcvine.org"">mcvine.org</a>|&nbsp;</li>
         <li><a href="../index.html">Documentation home</a>|&nbsp;</li>
-        <li><a href="../Documentation.html">Contents and indices</a>|&nbsp;</li>
         <li><a href="../search.html">search</a> &raquo;</li>
  
       </ul>
@@ -61,6 +60,15 @@
 
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Simulation of ARCS experiments</a><ul>
+<li><a class="reference internal" href="#command-line-interface-for-arcs">Command line interface for ARCS</a></li>
+<li><a class="reference internal" href="#tutorial-simulation-of-arcs-beam">Tutorial: Simulation of ARCS beam</a></li>
+</ul>
+</li>
+</ul>
+
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/instruments/ARCS.txt"
@@ -87,11 +95,42 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="arcs">
-<span id="id1"></span><h1>ARCS<a class="headerlink" href="#arcs" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="simulation-of-arcs-experiments">
+<span id="tutorials-arcs"></span><h1>Simulation of ARCS experiments<a class="headerlink" href="#simulation-of-arcs-experiments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-line-interface-for-arcs">
+<span id="arcscmds"></span><h2>Command line interface for ARCS<a class="headerlink" href="#command-line-interface-for-arcs" title="Permalink to this headline">¶</a></h2>
 <p>To find out available simulation applications for the ARCS spectrometer:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ mcvine instruments arcs
 </pre></div>
+</div>
+<p>To use bash aliases for ARCS related commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ eval `mcvine bash aliases arcs`
+</pre></div>
+</div>
+</div>
+<div class="section" id="tutorial-simulation-of-arcs-beam">
+<h2>Tutorial: Simulation of ARCS beam<a class="headerlink" href="#tutorial-simulation-of-arcs-beam" title="Permalink to this headline">¶</a></h2>
+<p>Here we simulate the ARCS instrument from moderator
+down to the sample position.</p>
+<p>Create a directory</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkdir mod2sample
+$ cd mod2sample
+</pre></div>
+</div>
+<p>Suppose</p>
+<ul class="simple">
+<li>the incident energy to simulate is 100 meV</li>
+<li>fermi chopper &#8220;100-1.5-SMI&#8221; is chosen</li>
+<li>fermi chopper frequency is set to 600 Hz</li>
+<li>T0 chopper frequency is set to 120 Hz</li>
+<li>neutron count is 1e8</li>
+</ul>
+<p>We can run the arcs beam simulation (from moderator to sample)</p>
+<blockquote>
+<div>$ arcs_beam -E=100 -T0_nu=120 -fermi_chopper=100-1.5-SMI -fermi_nu=600 &#8211;ncount=1e8</div></blockquote>
+<p>Output: out/neutrons</p>
+<p>Output: out/mon1-itof-focused.h5</p>
+<p>Output: out/mon2-itof-focused.h5</p>
 </div>
 </div>
 
@@ -109,7 +148,6 @@
              >index</a></li>
         <li><a href="http://mcvine.org"">mcvine.org</a>|&nbsp;</li>
         <li><a href="../index.html">Documentation home</a>|&nbsp;</li>
-        <li><a href="../Documentation.html">Contents and indices</a>|&nbsp;</li>
         <li><a href="../search.html">search</a> &raquo;</li>
  
       </ul>
