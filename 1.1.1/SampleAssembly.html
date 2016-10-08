@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sample Assembly &mdash; mcvine 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="mcvine 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+<div class="header">  
+<table><tr>
+<!--
+<td>
+<div style="text-align: left; padding: 7px 7px 10px 10px">
+<a href="index.html"><img src="_static/mcvine.png" border="0" alt="py4sci"
+  height="80"/></a>
+</div>
+</td>
+-->
+<td style="">
+<div class="banner">MCViNE: Monte Carlo VIrtual Neutron Experiment</div>
+</td>
+</tr>
+</table>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="search.html">search</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sample Assembly</a><ul>
+<li><a class="reference internal" href="#use-sample-assembly-in-your-simulation-application">Use sample assembly in your simulation application</a></li>
+<li><a class="reference internal" href="#files">Files</a><ul>
+<li><a class="reference internal" href="#the-main-sample-assembly-xml-file">The main sample assembly xml file</a></li>
+<li><a class="reference internal" href="#scatterer-xml">Scatterer xml</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/SampleAssembly.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sample-assembly">
+<span id="sampleassembly"></span><h1>Sample Assembly<a class="headerlink" href="#sample-assembly" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference external" href="http://dev.danse.us/packages/mcvine-examples.tgz">The examples tar ball</a>
+contains several examples introduced here.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Tutorials:</p>
+<ul class="last simple">
+<li><a class="reference internal" href="Tutorials-SampleAssembly.html#tutorials-sampleassembly"><em>Start from here</em></a></li>
+<li><a class="reference internal" href="Tutorials-PowderKernel.html#tutorials-powder-kernel"><em>Sample with powder diffraction kernel</em></a></li>
+</ul>
+</div>
+<div class="section" id="use-sample-assembly-in-your-simulation-application">
+<h2>Use sample assembly in your simulation application<a class="headerlink" href="#use-sample-assembly-in-your-simulation-application" title="Permalink to this headline">¶</a></h2>
+<p>The component type for sample assembly is &#8220;SampleAssemblyFromXml&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">--</span><span class="n">sample</span><span class="o">=</span><span class="n">SampleAssemblyFromXml</span>
+</pre></div>
+</div>
+<p>The only parameter for this component is the path to the xml file:</p>
+<div class="highlight-python"><div class="highlight"><pre>--sample.xml=&lt;xmlfilepath&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>A sample assembly consists of several files.</p>
+<ul class="simple">
+<li><a class="reference internal" href="#sampleassembly-main-xml"><em>The main xml file</em></a>.
+That is the file referred to by the &#8220;xml&#8221; parameter
+of the SampleAssemblyFromXml component.</li>
+<li>One xml file for each neutron scatterer in the sample assembly.</li>
+</ul>
+<div class="section" id="the-main-sample-assembly-xml-file">
+<span id="sampleassembly-main-xml"></span><h3>The main sample assembly xml file<a class="headerlink" href="#the-main-sample-assembly-xml-file" title="Permalink to this headline">¶</a></h3>
+<p>It contains information about the shapes and materials of the neutron scatterers</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;!DOCTYPE SampleAssembly&gt;
+
+&lt;SampleAssembly name=&quot;Al&quot;&gt;
+
+  &lt;PowderSample name=&quot;Al&quot; type=&quot;sample&quot;&gt;
+    &lt;Shape&gt;
+      &lt;block width=&quot;6*cm&quot; height=&quot;10*cm&quot; thickness=&quot;1*cm&quot; /&gt;
+    &lt;/Shape&gt;
+    &lt;Phase type=&quot;crystal&quot;&gt;
+      &lt;ChemicalFormula&gt;Al&lt;/ChemicalFormula&gt;
+      &lt;xyzfile&gt;Al.xyz&lt;/xyzfile&gt;
+    &lt;/Phase&gt;
+  &lt;/PowderSample&gt;
+
+  &lt;LocalGeometer registry-coordinate-system=&quot;InstrumentScientist&quot;&gt;
+    &lt;Register name=&quot;Al&quot; position=&quot;(0,0,0)&quot; orientation=&quot;(0,0,0)&quot;/&gt;
+  &lt;/LocalGeometer&gt;
+
+  &lt;Environment temperature=&quot;300*K&quot;/&gt;
+
+&lt;/SampleAssembly&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>The outmost tag is always &#8220;SampleAssembly&#8221;.</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>The next level consists of one or more neutron scatterers and one geometer.</li>
+<li>PowderSample is a neutron scatterer. Its name is important (see <a class="reference internal" href="#scatterer-xml"><em>Scatterer xml</em></a>).</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Inside a neutron scatterer we need to specify its shape and material</li>
+<li>Shape &#8211; can be represented using constructive solid geometery</li>
+<li>Phase</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>LocalGeometer is geometer. It contains geometrical information of neutron scatterers</li>
+<li>Environment: sample environment.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="scatterer-xml">
+<span id="id1"></span><h3>Scatterer xml<a class="headerlink" href="#scatterer-xml" title="Permalink to this headline">¶</a></h3>
+<p>A neutron scatterer is always assigned with a unique name inside the sample assembly xml
+file. There must be one file named &lt;scatterer-name&gt;-scatteer.xml in the same directory
+where the sample assembly xml is.</p>
+<p>In the above example for sample assembly, there is one scatterer &#8220;Al&#8221;. Therefore,
+there must be
+an Al-scatterer.xml file</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;!DOCTYPE scatterer&gt;
+
+&lt;!-- weights: absorption, scattering, transmission --&gt;
+&lt;homogeneous_scatterer mcweights=&quot;0, 1, 0&quot;&gt;
+
+  &lt;SimplePowderDiffractionKernel Dd_over_d=&quot;1e-5&quot; DebyeWaller_factor=&quot;1&quot; peaks-py-path=&quot;peaks.py&quot;&gt;
+  &lt;/SimplePowderDiffractionKernel&gt;
+
+&lt;/homogeneous_scatterer&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>A neutron scatterer xml file starts with a tag for the type of the scatterer.
+Currently the only type is &#8220;homogeneous_scatterer&#8221;</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Inside a scatterer tag, there is one kernel tag. See <a class="reference internal" href="kernels/kernels.html#kernels"><em>kernel documentation</em></a>.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="search.html">search</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2006-2016, Jiao Lin, Michael Aivazis, and Brent Fultz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
