@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Command line interface &mdash; mcvine 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="mcvine 1.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+<div class="header">  
+<table><tr>
+<!--
+<td>
+<div style="text-align: left; padding: 7px 7px 10px 10px">
+<a href="index.html"><img src="_static/mcvine.png" border="0" alt="py4sci"
+  height="80"/></a>
+</div>
+</td>
+-->
+<td style="">
+<div class="banner">MCViNE: Monte Carlo VIrtual Neutron Experiment</div>
+</td>
+</tr>
+</table>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="search.html">search</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Command line interface</a><ul>
+<li><a class="reference internal" href="#mcvine">mcvine</a></li>
+<li><a class="reference internal" href="#bash">bash</a></li>
+<li><a class="reference internal" href="#instruments">instruments</a></li>
+<li><a class="reference internal" href="#simulation-cache">Simulation Cache</a></li>
+<li><a class="reference internal" href="#phonon">phonon</a></li>
+<li><a class="reference internal" href="#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/CLI.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="command-line-interface">
+<span id="cli"></span><h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mcvine">
+<h2>mcvine<a class="headerlink" href="#mcvine" title="Permalink to this headline">¶</a></h2>
+<p>The main command line interface (CLI) of the MCViNE package is the command &#8220;mcvine&#8221;.
+Execute:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine
+</pre></div>
+</div>
+<p>will list available subcommands.</p>
+</div>
+<div class="section" id="bash">
+<span id="cli-bash"></span><h2>bash<a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h2>
+<p>If you are using bash, you can use the following command to add bash auto-complete
+support:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ eval &quot;$(_MCVINE_COMPLETE=source mcvine)&quot;
+</pre></div>
+</div>
+<p>You can also establish aliases to some long commands. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ eval `mcvine bash aliases arcs`
+</pre></div>
+</div>
+<p>will create aliases for commands related to the ARCS spectrometer, which
+include a series of aliases starting with prefix &#8220;arcs&#8221;. For example,
+&#8220;arcs_beam&#8221; is an alias of &#8220;mcvine instruments arcs beam&#8221;.</p>
+</div>
+<div class="section" id="instruments">
+<h2>instruments<a class="headerlink" href="#instruments" title="Permalink to this headline">¶</a></h2>
+<p>Subcommands for neutron instruments. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine instruments arcs
+</pre></div>
+</div>
+<p>provide commands for the ARCS spectrometer at SNS</p>
+</div>
+<div class="section" id="simulation-cache">
+<h2>Simulation Cache<a class="headerlink" href="#simulation-cache" title="Permalink to this headline">¶</a></h2>
+<p>Simulation results could be cached.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine instruments arcs beam --E=100 --ncount=1e8 --keep-in-cache
+</pre></div>
+</div>
+<p>will save the simulation results to a cache.</p>
+<p>To reuse the cached results, add option &#8220;&#8211;use-cache&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine instruments arcs beam --E=100 --ncount=1e8 --use-cache
+</pre></div>
+</div>
+</div>
+<div class="section" id="phonon">
+<h2>phonon<a class="headerlink" href="#phonon" title="Permalink to this headline">¶</a></h2>
+<p>Command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine phonon
+</pre></div>
+</div>
+<p>Phonon-related functionalities.</p>
+<p>Given phonon data in IDF format, it can</p>
+<ul class="simple">
+<li>extract band structure</li>
+<li>compute neutron scattering data slice</li>
+</ul>
+</div>
+<div class="section" id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h2>
+<p>mcstas support:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine mcstas compilecomponent --filename=&lt;path-to-component&gt; --category=&lt;component-category&gt;
+</pre></div>
+</div>
+<p>Check sample assembly xml:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mcvine sampleassembly check &lt;xmlpath&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="search.html">search</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2006-2016, Jiao Lin, Michael Aivazis, and Brent Fultz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
