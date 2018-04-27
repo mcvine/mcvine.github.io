@@ -135,6 +135,128 @@ In the late 1990s and early 2000s.
 
 
 ---
+class: split-50
 
 # Example 1: CHESS instrument at STS
 
+.left-column[
+CHESS
+* A Time-of-Flight chopper spectrometer at STS
+* Better brightness suitable for small samples
+* Detector system with tremendous solid-angle coverage
+
+.center[![:scale 50%](../images/CHESS/3D.png)]
+]
+
+.right-column[
+.center[![:scale 100%](../images/CHESS/H00-slices-CHESS_vs_CNCS.png)]
+MCViNE simulations
+* Realistic Monte Carlo simulations tracking neutrons from start to end
+* Performance of the moderator, guides, sample and detector system are considered
+* Simulated data reduced by Mantid
+]
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+--
+class: split-60
+
+.right-column[
+Energy spectrum
+
+![:scale 70%](../images/ARCS/beam-Ei_100-I_E.png)
+
+Cross section
+
+![:scale 70%](../images/ARCS/beam-Ei_100-crosssection.png)
+]
+
+.left-column[
+Beam monitors
+
+![:scale 70%](../images/ARCS/beam-Ei_100-monitors.png)
+]
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+
+--
+```yaml
+name: KVO
+chemical_formula: K2V3O8
+lattice:
+  constants: 8.87, 8.87, 5.2, 90, 90, 90
+  basis_vectors:
+    - 8.87, 0, 0
+    - 0, 8.87, 0
+    - 0, 0, 5.2
+excitation:
+  type: spinwave
+  E_Q: 2.563*sqrt(1-(cos(h*pi)*cos(k*pi))**2)
+  S_Q: 1
+  Emax: 3
+orientation:
+  u: 1, 0, 0
+  v: 0, 1, 0
+shape: block width="4.6*cm" height="4.6*cm" thickness="2.3/4*cm"
+packing_factor: 0.5
+temperature: 300*K
+```
+
+???
+* shape
+* kernel
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+* Detector system simulation -- generate NeXus files -- reduce by Mantid
+--
+.center[![:scale 85%](../images/basics/composite-detectorsystem.png)]  
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+* Detector system simulation -- generate NeXus files -- reduce by Mantid
+  - Detector system specification in Mantid can be converted into MCViNE
+    by [mantid2mcvine](https://github.com/mcvine/mantid2mcvine)
+
+.center[![:scale 40%](../images/CHESS/3D.png)]
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+* Detector system simulation -- generate NeXus files -- reduce by Mantid
+
+.center[![:scale 100%](../images/CHESS/H00-slices-CHESS_vs_CNCS.png)]
+
+???
+Kernels
+* spin-wave kernel
+* incoherent elastic line
+
+---
+class: split-50
+
+# Example 2: MENUS instrument at STS
+
+"MENUS at the STS will be a transformational high flux versatile multi-scale and multi-modal materials 
+engineering beamline with unprecedented new capabilities."
+
+.left-column[
+.center[![:scale 90%](../images/MENUS/schematic.png)]
+]
+
+.right-column[
+.center[![:scale 60%](../images/MENUS/mantid_instrument_view.png)]
+]
