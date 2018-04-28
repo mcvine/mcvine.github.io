@@ -28,14 +28,17 @@ class: center, middle
 # Overview
 
 1. Introduction
-
 --
 
 2. Examples
    * Realistic virtual experiments
+     * Inelastic: direct geometry spectrometers
+     * Elastic: engineering diffractometers
      * Multiple scattering
-   * Resolution functions
-
+   * Resolution functions for DGS experiments
+     * Powder
+     * Single crystal
+     * Super resolution phonon Density of States
 --
 
 3. Usage
@@ -130,8 +133,13 @@ In the late 1990s and early 2000s.
 
 # Examples
    * Realistic virtual experiments
+     * Inelastic: direct geometry spectrometers
+     * Elastic: engineering diffractometers
      * Multiple scattering
-   * Resolution functions
+   * Resolution functions for DGS experiments
+     * Powder
+     * Single crystal
+     * Super resolution phonon Density of States
 
 
 ---
@@ -260,3 +268,33 @@ engineering beamline with unprecedented new capabilities."
 .right-column[
 .center[![:scale 60%](../images/MENUS/mantid_instrument_view.png)]
 ]
+
+---
+class: split-50
+# Example 2: MENUS instrument at STS
+
+Kernel: powder diffraction
+
+.left-column[
+.center[![:scale 90%](../images/MENUS/Ni3Al-Vulcan)]
+]
+
+.right-column[
+.center[![:scale 90%](../images/MENUS/Ni3Al-MENUS)]
+]
+
+
+---
+class: split-50
+# Example 2: MENUS instrument at STS
+
+Kernel: powder diffraction
+
+.left-column[
+.center[![:scale 90%](../images/MENUS/resolution_comparison)]
+]
+
+.right-column[
+.center[![:scale 90%](../images/MENUS/diffraction_peaks_200_MENUS)]
+]
+
