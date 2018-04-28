@@ -28,6 +28,7 @@ class: center, middle
 # Overview
 
 1. Introduction
+
 --
 
 2. Examples
@@ -89,7 +90,7 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support of hierarchical structure from the start
+# MCViNE: Support hierarchical structure
 
 * Multiple scattering
 
@@ -97,7 +98,7 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support of hierarchical structure from the start
+# MCViNE: Support hierarchical structure
 
 * Sample assembly
   * consists of multiple "neutron-scatterers"
@@ -107,7 +108,7 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support of hierarchical structure from the start
+# MCViNE: Support hierarchical structure
 
 * Neutron scatterer
   * shape and scattering kernels
@@ -117,14 +118,14 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support of hierarchical structure from the start -- sample
+# MCViNE: Support hierarchical structure -- sample
 
 .center[![:scale 85%](../images/basics/composite-sample.png)]
 
 
 ---
 
-# MCViNE: Support of hierarchical structure from the start -- detector system
+# MCViNE: Support hierarchical structure -- detector system
 
 .center[![:scale 85%](../images/basics/composite-detectorsystem.png)]
 
@@ -192,8 +193,15 @@ Beam monitors
 
 * Simulate incident beam using MCViNE or McStas
 * Sample scattering simulation
-
 --
+.center[![:scale 50%](../images/basics/sampleassembly.png)]
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+
 ```yaml
 name: KVO
 chemical_formula: K2V3O8
@@ -253,6 +261,12 @@ Kernels
 * spin-wave kernel
 * incoherent elastic line
 
+
+---
+# More DGS examples
+
+See http://mcvine.org/examples.html
+
 ---
 class: split-50
 
@@ -273,7 +287,9 @@ engineering beamline with unprecedented new capabilities."
 class: split-50
 # Example 2: MENUS instrument at STS
 
-Kernel: powder diffraction
+* Ni3Al
+* Kernel: powder diffraction
+* MENUS boosts intensities at long-wavelengths
 
 .left-column[
 .center[![:scale 90%](../images/MENUS/Ni3Al-Vulcan.png)]
@@ -283,12 +299,16 @@ Kernel: powder diffraction
 .center[![:scale 90%](../images/MENUS/Ni3Al-MENUS.png)]
 ]
 
+???
+Ni3Al diffraction peaks: https://jupyter.sns.gov/user/lj7/notebooks/simulations/MENUS/sample-fccNi/create.ipynb
 
 ---
 class: split-50
 # Example 2: MENUS instrument at STS
 
-Kernel: powder diffraction
+* Ni3Al
+* Kernel: powder diffraction
+* MENUS high resolution mode good for resolving superlattice peaks
 
 .left-column[
 .center[![:scale 90%](../images/MENUS/resolution_comparison.png)]
