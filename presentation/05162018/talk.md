@@ -276,11 +276,11 @@ class: split-50
 Kernel: powder diffraction
 
 .left-column[
-.center[![:scale 90%](../images/MENUS/Ni3Al-Vulcan)]
+.center[![:scale 90%](../images/MENUS/Ni3Al-Vulcan.png)]
 ]
 
 .right-column[
-.center[![:scale 90%](../images/MENUS/Ni3Al-MENUS)]
+.center[![:scale 90%](../images/MENUS/Ni3Al-MENUS.png)]
 ]
 
 
@@ -291,10 +291,10 @@ class: split-50
 Kernel: powder diffraction
 
 .left-column[
-.center[![:scale 90%](../images/MENUS/resolution_comparison)]
+.center[![:scale 90%](../images/MENUS/resolution_comparison.png)]
 ]
 
 .right-column[
-.center[![:scale 90%](../images/MENUS/diffraction_peaks_200_MENUS)]
+.center[![:scale 90%](../images/MENUS/diffraction_peaks_200_MENUS.png)]
 ]
 
