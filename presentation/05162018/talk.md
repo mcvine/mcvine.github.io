@@ -39,7 +39,7 @@ class: center, middle
    * Resolution functions for DGS experiments
      * Powder
      * Single crystal
-     * Super resolution phonon Density of States
+.hidden[* Super resolution phonon Density of States]
 --
 
 3. Usage
@@ -129,6 +129,11 @@ In the late 1990s and early 2000s.
 
 .center[![:scale 85%](../images/basics/composite-detectorsystem.png)]
 
+---
+# MCViNE: Support hierarchical structure
+
+Publication: [Lin J.Y.Y et al., MCViNE – An object oriented Monte Carlo neutron ray tracing simulation package](http://dx.doi.org/10.1016/j.nima.2015.11.118)
+
 
 ---
 
@@ -140,13 +145,14 @@ In the late 1990s and early 2000s.
    * Resolution functions for DGS experiments
      * Powder
      * Single crystal
-     * Super resolution phonon Density of States
+.hidden[* Super resolution phonon Density of States]
 
 
 ---
 class: split-50
 
 # Example 1: CHESS instrument at STS
+
 
 .left-column[
 CHESS
@@ -163,6 +169,10 @@ MCViNE simulations
 * Realistic Monte Carlo simulations tracking neutrons from start to end
 * Performance of the moderator, guides, sample and detector system are considered
 * Simulated data reduced by Mantid
+]
+
+.reference[
+[Sala G. et al., Conceptual design of CHESS, a new direct‐geometry inelastic neutron spectrometer dedicated to studying small samples](https://doi.org/10.1107/S1600576718002224)
 ]
 
 ---
@@ -318,3 +328,57 @@ class: split-50
 .center[![:scale 90%](../images/MENUS/diffraction_peaks_200_MENUS.png)]
 ]
 
+---
+# Multiple scattering
+
+.center[![:scale 50%](../images/basics/sampleassembly.png)]
+
+---
+# Multiple scattering - MICAS furnace
+
+.center[![:scale 40%](../images/MICAS/schematic.png)]
+
+---
+class: split-60
+# Multiple scattering - MICAS furnace
+
+.left-column[
+![:scale 100%](../images/MICAS/IQE_exp_vs_sim.png)
+]
+
+.right-column[
+
+* Top: experimental 
+* Middle: simulation without multiple-scattering (MS)
+* Bottom: simulation with MS
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+* Left: without collimator
+* Right: with collimator
+]
+
+
+.reference[
+[Niedziela J.L. et al., Design and operating characteristic of a vacuum furnace for time-of-flight inelastic neutron scattering measurements](https://doi.org/10.1063/1.5007089)
+]
+
+---
+# Examples
+   * Realistic virtual experiments
+     * Inelastic: direct geometry spectrometers
+     * Elastic: engineering diffractometers
+     * Multiple scattering
+   * **Resolution functions for DGS experiments**
+     * Powder
+     * Single crystal
+.hidden[* Super resolution phonon Density of States]
+
+---
