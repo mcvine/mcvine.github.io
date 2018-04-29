@@ -20,7 +20,7 @@ class: center, middle
 .date[May 16, 2018]
 
         
-.footnote[Created with [{Remark.js}](http://remarkjs.com/) using [{Markdown}](https://daringfireball.net/projects/markdown/) +  [{MathJax}](https://www.mathjax.org/)]
+.footnote[Created with [{Remark.js}](http://remarkjs.com/) using [{Markdown}](https://daringfireball.net/projects/markdown/) +  [{katex}](https://github.com/Khan/KaTeX/)]
 
 
 ---
@@ -382,3 +382,18 @@ class: split-60
 .hidden[* Super resolution phonon Density of States]
 
 ---
+# Resolution - \\(^4 \mathrm{He}\\) measurement at ARCS
+
+---
+# Usage
+
+   * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
+   * instrument design and optimization
+
+---
+# Usage
+
+   * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
+
+Start from here: http://mcvine.org/usage.html
+
