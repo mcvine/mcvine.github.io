@@ -310,7 +310,9 @@ class: split-50
 ]
 
 ???
-Ni3Al diffraction peaks: https://jupyter.sns.gov/user/lj7/notebooks/simulations/MENUS/sample-fccNi/create.ipynb
+* high flux, wide Q coverage
+* strain/phase-transition/texture evolution in 3 orthogonal axes
+* Ni3Al diffraction peaks: https://jupyter.sns.gov/user/lj7/notebooks/simulations/MENUS/sample-fccNi/create.ipynb
 
 ---
 class: split-50
