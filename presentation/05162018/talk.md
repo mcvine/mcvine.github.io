@@ -54,7 +54,7 @@ class: center, middle
 * MCViNE: Monte Carlo **VIrtual Neutron Experiment**
 
 * Monte Carlo neutron ray-tracing simulation software
-  - modeling of systems of hierachical structures
+  - modeling of systems of **hierachical** structures
 
 * Python/C++
 
@@ -90,7 +90,7 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support hierarchical structure
+# MCViNE: Support **hierarchical** structure
 
 * Multiple scattering
 
@@ -98,7 +98,7 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support hierarchical structure
+# MCViNE: Support **hierarchical** structure
 
 * Sample assembly
   * consists of multiple "neutron-scatterers"
@@ -108,7 +108,7 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support hierarchical structure
+# MCViNE: Support **hierarchical** structure
 
 * Neutron scatterer
   * shape and scattering kernels
@@ -120,19 +120,19 @@ In the late 1990s and early 2000s.
 
 ---
 
-# MCViNE: Support hierarchical structure -- sample
+# MCViNE: Support **hierarchical** structure -- sample
 
 .center[![:scale 85%](../images/basics/composite-sample.png)]
 
 
 ---
 
-# MCViNE: Support hierarchical structure -- detector system
+# MCViNE: Support **hierarchical** structure -- detector system
 
 .center[![:scale 85%](../images/basics/composite-detectorsystem.png)]
 
 ---
-# MCViNE: Support hierarchical structure
+# MCViNE: Support **hierarchical** structure
 
 Publication: [Lin J.Y.Y et al., MCViNE – An object oriented Monte Carlo neutron ray tracing simulation package](http://dx.doi.org/10.1016/j.nima.2015.11.118)
 
@@ -234,7 +234,7 @@ orientation:
   u: 1, 0, 0
   v: 0, 1, 0
 shape: block width="4.6*cm" height="4.6*cm" thickness="2.3/4*cm"
-packing_factor: 0.5
+packing_factor: 1.0
 temperature: 300*K
 ```
 
@@ -410,8 +410,60 @@ class: split-60
      * Single crystal
 .hidden[* Super resolution phonon Density of States]
 
----
+???
 # Resolution - \\(^4 \mathrm{He}\\) measurement at ARCS
+
+
+---
+# Resolution for Direct Geometry Spectrometers
+
+--
+class: split-60
+
+.right-column[
+Energy spectrum
+
+![:scale 70%](../images/ARCS/beam-Ei_100-I_E.png)
+
+Cross section
+
+![:scale 70%](../images/ARCS/beam-Ei_100-crosssection.png)
+]
+
+.left-column[
+Beam monitors
+
+![:scale 70%](../images/ARCS/beam-Ei_100-monitors.png)
+]
+
+
+---
+# Resolution for Direct Geometry Spectrometers: source
+
+Ikeda Carpenter function
+
+![:scale 95%](../images/resolution/IkedaCarpenterFormula.png)
+
+Gaussian-broadend Ikeda-Carpenter function
+
+![:scale 65%](../images/resolution/ICGFormula.png)
+
+---
+# Resolution for Direct Geometry Spectrometers
+
+Ikeda Carpenter function
+
+![:scale 95%](../images/resolution/IkedaCarpenterFormula.png)
+
+Gaussian-broadend Ikeda-Carpenter function
+
+![:scale 65%](../images/resolution/ICGFormula.png)
+
+--
+
+Resolution function is asymmetric and depends on energy transfer
+
+![:scale 45%](../images/resolution/ARCS-Ei_300-res_vs_E.png)
 
 ---
 # Usage
