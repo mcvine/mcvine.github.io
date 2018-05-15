@@ -115,6 +115,8 @@ In the late 1990s and early 2000s.
 
 .center[![:scale 70%](../images/basics/scatterer-scattering-mapto-kernels.png)]
 
+???
+* Should add a slide for Constructive Solid Geometery
 
 ---
 
@@ -138,10 +140,12 @@ Publication: [Lin J.Y.Y et al., MCViNE – An object oriented Monte Carlo neutro
 ---
 
 # Examples
+
    * Realistic virtual experiments
      * Inelastic: direct geometry spectrometers
      * Elastic: engineering diffractometers
      * Multiple scattering
+     
    * Resolution functions for DGS experiments
      * Powder
      * Single crystal
@@ -247,6 +251,8 @@ temperature: 300*K
 .center[![:scale 85%](../images/basics/composite-detectorsystem.png)]  
 
 ---
+class: split-50
+
 # Typical simulation procedure
 
 * Simulate incident beam using MCViNE or McStas
@@ -255,7 +261,15 @@ temperature: 300*K
   - Detector system specification in Mantid can be converted into MCViNE
     by [mantid2mcvine](https://github.com/mcvine/mantid2mcvine)
 
-.center[![:scale 40%](../images/CHESS/3D.png)]
+.left-column[
+.center[![:scale 60%](../images/CHESS/3D.png)]
+]
+
+.right-column[
+&nbsp;
+.center[![:scale 55%](../images/CHESS/Mantid_instrument_view.png)]
+]
+
 
 ---
 # Typical simulation procedure
