@@ -354,6 +354,17 @@ class: split-50
 
 .center[![:scale 40%](../images/MICAS/schematic.png)]
 
+???
+# Multiple scattering - MICAS furnace
+
+.center[![:scale 40%](../images/MICAS/schematic-cans-only.png)]
+
+
+---
+# Multiple scattering - MICAS furnace
+
+.center[![:scale 40%](../images/MICAS/SCAD.png)]
+
 ---
 class: split-60
 # Multiple scattering - MICAS furnace
@@ -388,10 +399,12 @@ class: split-60
 
 ---
 # Examples
+
    * Realistic virtual experiments
      * Inelastic: direct geometry spectrometers
      * Elastic: engineering diffractometers
      * Multiple scattering
+     
    * **Resolution functions for DGS experiments**
      * Powder
      * Single crystal
