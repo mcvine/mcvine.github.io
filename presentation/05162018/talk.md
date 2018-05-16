@@ -415,7 +415,7 @@ class: split-60
 
 
 ---
-# Resolution for Direct Geometry Spectrometers
+# Resolution for Direct Geometry Spectrometers - Powder
 
 --
 class: split-60
@@ -438,7 +438,7 @@ Beam monitors
 
 
 ---
-# Resolution for Direct Geometry Spectrometers: source
+# Resolution for Direct Geometry Spectrometers - Powder
 
 Ikeda Carpenter function
 
@@ -446,24 +446,67 @@ Ikeda Carpenter function
 
 Gaussian-broadend Ikeda-Carpenter function
 
-![:scale 65%](../images/resolution/ICGFormula.png)
-
----
-# Resolution for Direct Geometry Spectrometers
-
-Ikeda Carpenter function
-
-![:scale 95%](../images/resolution/IkedaCarpenterFormula.png)
-
-Gaussian-broadend Ikeda-Carpenter function
-
-![:scale 65%](../images/resolution/ICGFormula.png)
+![:scale 55%](../images/resolution/ICGFormula.png)
 
 --
 
 Resolution function is asymmetric and depends on energy transfer
 
 ![:scale 45%](../images/resolution/ARCS-Ei_300-res_vs_E.png)
+
+
+---
+class: split-50
+# Resolution for Direct Geometry Spectrometers - Powder
+
+.left-column[
+Inputs
+* simulated beam
+* sample
+* point of interestes: \\(Q\\), \\(E\\)
+* settings of \\(Q\\), \\(E\\) axes
+]
+
+.right-column[
+.center[![:scale 90%](../images/resolution/ARCS-Ei_100-Q_5-E25-res_vs_QE)]
+]
+
+---
+# Resolution for Direct Geometry Spectrometers - Single crystal
+
+.center[![:scale 85%](../images/resolution/ARCS-Si_SC-Ei_100-res_vs_qE-compared_to_diffraction.png)]
+
+---
+# Resolution for Direct Geometry Spectrometers - Single crystal
+
+.center[![:scale 85%](../images/resolution/ARCS-Si_SC-Ei_100-res_vs_qE.png)]
+
+---
+
+class: split-50
+# Resolution for Direct Geometry Spectrometers - Single crystal
+
+
+.left-column[
+Inputs
+
+* simulated beam
+* sample
+  - material
+  - shape
+  - orientation
+  - psi scan
+* slice info
+  - point of interest
+  - slice direction
+]
+
+.right-column[
+.center[![:scale 60%](../images/resolution/dynamic-range-example.png)]
+]
+
+???
+.center[![:scale 70%](../images/resolution/resolution-example.png)]
 
 ---
 # Usage
@@ -472,9 +515,14 @@ Resolution function is asymmetric and depends on energy transfer
    * instrument design and optimization
 
 ---
-# Usage
-
-   * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
+# Usage of ready-to-use virtual instruments (Direct Geometry Spectrometers)
 
 Start from here: http://mcvine.org/usage.html
 
+---
+# Usage: instrument design and optimization
+
+Start from here: https://jupyter.sns.gov/user/{UID}/tree/notebooks/mcvine/instrument_simulation
+
+---
+# Questions?
