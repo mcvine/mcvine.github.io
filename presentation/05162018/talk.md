@@ -468,7 +468,7 @@ Inputs
 ]
 
 .right-column[
-.center[![:scale 90%](../images/resolution/ARCS-Ei_100-Q_5-E25-res_vs_QE)]
+.center[![:scale 90%](../images/resolution/ARCS-Ei_100-Q_5-E25-res_vs_QE.png)]
 ]
 
 ---
@@ -495,7 +495,7 @@ Inputs
   - material
   - shape
   - orientation
-  - psi scan
+  - \\(\psi\\) scan
 * slice info
   - point of interest
   - slice direction
@@ -525,4 +525,15 @@ Start from here: http://mcvine.org/usage.html
 Start from here: https://jupyter.sns.gov/user/{UID}/tree/notebooks/mcvine/instrument_simulation
 
 ---
-# Questions?
+# Links
+
+* Homepage: http://mcvine.org
+
+* Slack: https://mcvine.slack.com
+
+* Notebooks
+  - [Instrument simulation at jupyter.sns.gov](https://jupyter.sns.gov/user/{UID}/tree/notebooks/mcvine/instrument_simulation)
+  - [DGS virtual experiments at jupyter.sns.gov](https://jupyter.sns.gov/user/lj7/notebooks/notebooks/mcvine/jui/1%20-%20DGS.ipynb)
+  - [DGS resolution calculation at jupyter.sns.gov](https://jupyter.sns.gov/user/lj7/notebooks/notebooks/mcvine/resolution/DGS-powder.ipynb)
+
+* Development: https://github.com/mcvine/devel
