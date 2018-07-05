@@ -2,7 +2,6 @@ class: center, middle
 
 .title[Applications of MCViNE simulations at SNS]
 &nbsp;  
-.subtitle[Realistic neutron experiment simulations help neutron data analytics]
 &nbsp;
 .center[[{mcvine.org}](http://mcvine.org)]
 &nbsp;              
