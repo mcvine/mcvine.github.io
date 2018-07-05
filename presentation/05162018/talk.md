@@ -137,6 +137,8 @@ In the late 1990s and early 2000s.
 Publication: [Lin J.Y.Y et al., MCViNE – An object oriented Monte Carlo neutron ray tracing simulation package](http://dx.doi.org/10.1016/j.nima.2015.11.118)
 
 
+* Complex samples and detector systems
+
 ---
 
 # Examples
@@ -207,7 +209,7 @@ Beam monitors
 
 * Simulate incident beam using MCViNE or McStas
 * Sample scattering simulation
---
+
 .center[![:scale 50%](../images/basics/sampleassembly.png)]
 
 ---
@@ -218,13 +220,6 @@ Beam monitors
 
 ```yaml
 name: KVO
-chemical_formula: K2V3O8
-lattice:
-  constants: 8.87, 8.87, 5.2, 90, 90, 90
-  basis_vectors:
-    - 8.87, 0, 0
-    - 0, 8.87, 0
-    - 0, 0, 5.2
 excitation:
   type: spinwave
   E_Q: 2.563*sqrt(1-(cos(h*pi)*cos(k*pi))**2)
@@ -233,14 +228,85 @@ excitation:
 orientation:
   u: 1, 0, 0
   v: 0, 1, 0
-shape: block width="4.6*cm" height="4.6*cm" thickness="2.3/4*cm"
 packing_factor: 1.0
 temperature: 300*K
+shape: block width="4.6*cm" height="4.6*cm" thickness="2.3/4*cm"
+chemical_formula: K2V3O8
+lattice:
+  constants: 8.87, 8.87, 5.2, 90, 90, 90
+  basis_vectors:
+    - 8.87, 0, 0
+    - 0, 8.87, 0
+    - 0, 0, 5.2
 ```
 
 ???
+* CIF support
 * shape
 * kernel
+
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+
+```yaml
+name: KVO
+excitation:
+  type: spinwave
+  E_Q: 2.563*sqrt(1-(cos(h*pi)*cos(k*pi))**2)
+  S_Q: 1
+  Emax: 3
+orientation:
+  u: 1, 0, 0
+  v: 0, 1, 0
+packing_factor: 1.0
+temperature: 300*K
+shape: block width="4.6*cm" height="4.6*cm" thickness="2.3/4*cm"
+structure_file: KVO.cif
+```
+
+---
+# Typical simulation procedure
+
+* Simulate incident beam using MCViNE or McStas
+* Sample scattering simulation
+
+```yaml
+name: KVO
+excitation:
+  type: spinwave
+  E_Q: 2.563*sqrt(1-(cos(h*pi)*cos(k*pi))**2)
+  S_Q: 1
+  Emax: 3
+orientation:
+  u: 1, 0, 0
+  v: 0, 1, 0
+packing_factor: 1.0
+temperature: 300*K
+structure_file: KVO.cif
+shape:
+  difference:
+    - cylinder:
+        radius: 10.*cm
+        height: 10*cm
+    - cylinder:
+        radius: 9.9*cm
+        height: 11*cm
+```
+
+???
+code to convert sample yaml file to xml files for DGS
+```
+    from mcvine.workflow.sample import loadSampleYml, dgs_setEi
+    sample = loadSampleYml(sample_yaml)
+    dgs_setEi(sample, Ei)
+    from mcvine.workflow.sampleassembly.scaffolding import createSampleAssembly
+    createSampleAssembly(sa_dir, sample)
+```
+
 ---
 # Typical simulation procedure
 
@@ -415,7 +481,7 @@ class: split-60
 
 
 ---
-# Resolution for Direct Geometry Spectrometers
+# Resolution for Direct Geometry Spectrometers - Powder
 
 --
 class: split-60
@@ -438,7 +504,7 @@ Beam monitors
 
 
 ---
-# Resolution for Direct Geometry Spectrometers: source
+# Resolution for Direct Geometry Spectrometers - Powder
 
 Ikeda Carpenter function
 
@@ -446,24 +512,67 @@ Ikeda Carpenter function
 
 Gaussian-broadend Ikeda-Carpenter function
 
-![:scale 65%](../images/resolution/ICGFormula.png)
-
----
-# Resolution for Direct Geometry Spectrometers
-
-Ikeda Carpenter function
-
-![:scale 95%](../images/resolution/IkedaCarpenterFormula.png)
-
-Gaussian-broadend Ikeda-Carpenter function
-
-![:scale 65%](../images/resolution/ICGFormula.png)
+![:scale 55%](../images/resolution/ICGFormula.png)
 
 --
 
 Resolution function is asymmetric and depends on energy transfer
 
 ![:scale 45%](../images/resolution/ARCS-Ei_300-res_vs_E.png)
+
+
+---
+class: split-50
+# Resolution for Direct Geometry Spectrometers - Powder
+
+.left-column[
+Inputs
+* simulated beam
+* sample
+* point of interestes: \\(Q\\), \\(E\\)
+* settings of \\(Q\\), \\(E\\) axes
+]
+
+.right-column[
+.center[![:scale 90%](../images/resolution/ARCS-Ei_100-Q_5-E25-res_vs_QE.png)]
+]
+
+---
+# Resolution for Direct Geometry Spectrometers - Single crystal
+
+.center[![:scale 85%](../images/resolution/ARCS-Si_SC-Ei_100-res_vs_qE-compared_to_diffraction.png)]
+
+---
+# Resolution for Direct Geometry Spectrometers - Single crystal
+
+.center[![:scale 85%](../images/resolution/ARCS-Si_SC-Ei_100-res_vs_qE.png)]
+
+---
+
+class: split-50
+# Resolution for Direct Geometry Spectrometers - Single crystal
+
+
+.left-column[
+Inputs
+
+* simulated beam
+* sample
+  - material
+  - shape
+  - orientation
+  - \\(\psi\\) scan
+* slice info
+  - point of interest
+  - slice direction
+]
+
+.right-column[
+.center[![:scale 60%](../images/resolution/dynamic-range-example.png)]
+]
+
+???
+.center[![:scale 70%](../images/resolution/resolution-example.png)]
 
 ---
 # Usage
@@ -472,9 +581,26 @@ Resolution function is asymmetric and depends on energy transfer
    * instrument design and optimization
 
 ---
-# Usage
-
-   * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
+# Usage of ready-to-use virtual instruments (Direct Geometry Spectrometers)
 
 Start from here: http://mcvine.org/usage.html
 
+---
+# Usage: instrument design and optimization
+
+Start from here: https://jupyter.sns.gov/user/{UID}/tree/notebooks/mcvine/instrument_simulation
+
+---
+# Links
+
+* Homepage: http://mcvine.org
+
+* Slack: https://mcvine.slack.com
+  - [Join](https://join.slack.com/t/mcvine/shared_invite/enQtMzY0NDk5NjEwNTY0LTRiMDQ3Y2E2YzA3MGYzYTM3MzcwOTBkZjc0MzA5ODJlYWZhOTQyYWVhZGJkZjYyYmViODhkN2RkN2EwMjM4MDU)
+
+* Notebooks
+  - [Instrument simulation at jupyter.sns.gov](https://jupyter.sns.gov/user/{UID}/tree/notebooks/mcvine/instrument_simulation)
+  - [DGS virtual experiments at jupyter.sns.gov](https://jupyter.sns.gov/user/lj7/notebooks/notebooks/mcvine/jui/1%20-%20DGS.ipynb)
+  - [DGS resolution calculation at jupyter.sns.gov](https://jupyter.sns.gov/user/lj7/notebooks/notebooks/mcvine/resolution/DGS-powder.ipynb)
+
+* Development: https://github.com/mcvine/devel
