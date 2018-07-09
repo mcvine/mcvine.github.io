@@ -597,21 +597,11 @@ Inputs
 
 .center[![:scale 90%](../images/SRINS/graphite/workflow.png)]
 
+
 ---
 # Usage
 
-   * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
-   * instrument design and optimization
-
----
-# Usage of ready-to-use virtual instruments (Direct Geometry Spectrometers)
-
 Start from here: http://mcvine.org/usage.html
-
----
-# Usage: instrument design and optimization
-
-Start from here: https://jupyter.sns.gov/user/{UID}/tree/notebooks/mcvine/instrument_simulation
 
 ---
 # Links
