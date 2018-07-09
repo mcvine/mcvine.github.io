@@ -9,10 +9,10 @@ class: center, middle
 &nbsp;              
 &nbsp;              
 &nbsp;              
-.author[Jiao Lin] 
+.author[Jiao Lin, **Doug Abernathy**, Garrett Granroth] 
 <!--.center[[linjiao.info](http://linjiao.info)]-->
 &nbsp;              
-.institution[Neutron Data Sciences Group]
+.institution[Neutron Scattering Division]
 &nbsp;  
 .institution[Oak Ridge National Lab]
 &nbsp;              
@@ -27,12 +27,11 @@ class: center, middle
 # Acknowledgements
 
 ## Collaborators
-* Garrett Granroth
-* Doug Abernathy
 * Gabriele Sala
 * Hillary Smith
 * Fahima Islam
 * Ke An
+* Matt Stone
 * Dennis Kim
 * Brent Fultz
 
