@@ -56,6 +56,7 @@ class: center, middle
    * Resolution functions for DGS experiments
      * Powder
      * Single crystal
+     * "Super-resolution" phonon Density of States from powder data
 .hidden[* Super resolution phonon Density of States]
 --
 
@@ -590,6 +591,11 @@ Inputs
 
 ???
 .center[![:scale 70%](../images/resolution/resolution-example.png)]
+
+---
+# "Super-resolution" phonon Density of States
+
+.center[![:scale 90%](../images/SRINS/graphite/workflow.png)]
 
 ---
 # Usage
