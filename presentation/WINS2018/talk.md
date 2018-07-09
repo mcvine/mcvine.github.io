@@ -61,8 +61,6 @@ class: center, middle
 --
 
 3. Usage
-   * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
-   * instrument design and optimization
 
 
 ---
