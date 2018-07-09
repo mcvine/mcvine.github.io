@@ -617,3 +617,7 @@ Start from here: http://mcvine.org/usage.html
   - [DGS resolution calculation at jupyter.sns.gov](https://jupyter.sns.gov/user/lj7/notebooks/notebooks/mcvine/resolution/DGS-powder.ipynb)
 
 * Development: https://github.com/mcvine/devel
+
+---
+background-image: url(../images/apps2018.png)
+background-size: auto 100%
