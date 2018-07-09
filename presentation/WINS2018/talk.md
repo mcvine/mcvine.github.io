@@ -601,7 +601,9 @@ Inputs
 ---
 # Usage
 
-Start from here: http://mcvine.org/usage.html
+* Make heavy use of jupyter notebooks
+* Simulations of SNS experiments can be configured and launched from https://jupyter.sns.gov
+* Start from here: http://mcvine.org/usage.html
 
 ---
 # Links
