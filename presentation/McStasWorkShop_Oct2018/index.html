@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MCViNE  {Oct 19, 2018}</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+    /* Two-column layout */
+      .left-column {
+        float: left;
+      }
+      .right-column {
+        float: right;
+      }
+      .split-30 .left-column {width: 30%}
+      .split-30 .right-column {width: 70%}
+      .split-40 .left-column {width: 40%}
+      .split-40 .right-column {width: 60%}
+      .split-50 .left-column {width: 50%}
+      .split-50 .right-column {width: 50%}
+      .split-60 .left-column {width: 60%}
+      .split-60 .right-column {width: 40%}
+      .split-70 .left-column {width: 70%}
+      .split-70 .right-column {width: 30%}
+
+      .footnote {  
+        position:absolute;
+        bottom: 1em;
+        left: 14em;
+        font-size: 0.7em;
+       }
+      .title {font-size: 3.3em; color:#606060;font-weight:bold;letter-spacing:0.05em}
+      .subtitle {font-size: 1.4em}
+      .author {font-size: 1.4em; color:#606060;font-weight:bold;letter-spacing:0.02em}  
+      .coauthor {font-size: 1.0em; color:#606060;font-weight:bold;letter-spacing:0.02em}  
+      .institution {font-size: 1.0em;}
+      .date {font-size: 1.0em;font-style: italic}
+    
+      .cite {font-size: 0.8em; color:#33AA99;font-style: italic}
+      .strike {color:salmon;text-decoration:line-through}
+
+      .hidden {display: none}
+      .reference {
+        position:absolute;
+        bottom: .5em;
+      width: 40em;
+        left: 6em;
+        font-size: 0.7em;
+       }
+    </style>
+  </head>
+  <body>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+
+    <script>
+      remark.macros.scale = function (percentage) {
+        var url = this;
+        return '<img src="' + url + '" style="width: ' + percentage + '" />';
+      };
+      var options = {sourceUrl: 'talk.md'};
+      var renderMath = function() {
+        renderMathInElement(document.body);
+      }
+      var slideshow = remark.create(options, renderMath);
+    </script>
+  </body>
+</html>
