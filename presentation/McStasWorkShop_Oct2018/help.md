@@ -8,3 +8,11 @@ image
 class: split-60
 .left-column[]
 .right-column[]
+
+
+vertical space
+&nbsp;
+
+
+math
+inline: \\( \omega \\)

@@ -39,10 +39,11 @@ class: center, middle
    * Resolution functions for DGS experiments
      * Powder
      * Single crystal
-.hidden[* Super resolution phonon Density of States]
+
+???
+* Super resolution phonon Density of States
 
 --
-
 3. Usage
    * of ready-to-use virtual instruments (Direct Geometry Spectrometers)
    * instrument design and optimization
@@ -90,7 +91,81 @@ flexible and powerful simulations.
 In the late 1990s and early 2000s.
 
 ---
+# McStas sample components
 
+| Type          | Supported shapes | Physics |
+| ------------- | ---------------- | ------- |
+| PowderN       | box cylinder etc | powder diffraction |
+| Incoherent    | box cylinder etc | incoherent elastic/quasielastic |
+| Phonon_simple | box cylinder etc | phonon |
+| Isotropic_Sqw | box cylinder etc | powder/liquid S(Q,w) |
+| Single_crystal| box cylinder etc | single crystal diffraction |
+
+--
+
+* shape: ray-tracing. geometry. deterministic
+* scattering physics: Monte Carlo
+
+
+[//]: # (why mcvine)
+
+---
+class: split-60
+
+# MCViNE
+* Separate **geometry** and **physics**
+* Support **hierarchical** structure
+
+<hr>
+
+.right-column[
+* Sample assembly
+  * consists of multiple "neutron-scatterers"
+
+.center[![:scale 100%](../images/basics/sampleassembly.png)]
+]
+
+.left-column[
+
+* Neutron scatterer
+  * shape and scattering kernels
+
+&nbsp;
+
+.center[![:scale 100%](../images/basics/scatterer-scattering-mapto-kernels.png)]
+]
+
+???
+* Should add a slide for Constructive Solid Geometery
+
+
+---
+# Sample components
+
+| McStas        | MCViNE           |
+| ------------- | ---------------- |
+| PowderN       | shape + "powder diffraction" kernel |
+| Incoherent    | shape + "incoherent elastic/quasielastic" kernel |
+| Phonon_simple | shape + "phonon" kernel |
+| Isotropic_Sqw | shape + "powder/liquid S(Q,\\( \omega \\))" kernel |
+| Single_crystal| shape + "single crystal diffraction" kernel |
+
+---
+
+# MCViNE generic sample component
+
+* shape + "powder diffraction" kernel 
+* shape + "incoherent elastic/quasielastic" kernel 
+* shape + "phonon" kernel 
+* shape + "powder/liquid S(Q,\\( \omega \\))" kernel 
+* shape + "single crystal diffraction" kernel 
+* ** shape + "powder diffraction" kernel + "phonon" kernel **
+* ** shape + "powder diffraction" kernel + "powder S(Q,\\( \omega \\))" kernel  **
+* ** shape + "incoherent" kernel + "multiphonon" kernel + "single crystal phonon" kernel **
+* ...
+
+
+---
 # MCViNE: Support **hierarchical** structure
 
 * Multiple scattering
@@ -98,29 +173,6 @@ In the late 1990s and early 2000s.
 .center[![:scale 90%](../images/basics/mcvine-scattering-path.png)]
 
 ---
-
-# MCViNE: Support **hierarchical** structure
-
-* Sample assembly
-  * consists of multiple "neutron-scatterers"
-
-.center[![:scale 50%](../images/basics/sampleassembly.png)]
-
-
----
-
-# MCViNE: Support **hierarchical** structure
-
-* Neutron scatterer
-  * shape and scattering kernels
-
-.center[![:scale 70%](../images/basics/scatterer-scattering-mapto-kernels.png)]
-
-???
-* Should add a slide for Constructive Solid Geometery
-
----
-
 # MCViNE: Support **hierarchical** structure -- sample
 
 .center[![:scale 85%](../images/basics/composite-sample.png)]
@@ -153,6 +205,7 @@ Publication: [Lin J.Y.Y et al., MCViNE – An object oriented Monte Carlo neutro
      * Powder
      * Single crystal
 
+???
 .hidden[* Super resolution phonon Density of States]
 
 
@@ -189,9 +242,9 @@ MCViNE simulations
 * https://jupyter.sns.gov
 
 --
-* jupyter: a web based computing environment
-* notebook: supports computation, visualization, comments
-* jupyter.sns.gov: a service closely coupled with SNS analysis clusters
+* jupyter: a web based computing environment 
+* notebook: supports computation (using `python`), visualization, comments
+* jupyter.sns.gov: a service integrated with SNS analysis clusters
 
 --
 * MCViNE tutorials exist as jupyter notebooks
@@ -364,6 +417,11 @@ shape:
 .center[![:scale 85%](../images/CHESS/cylinder.jpg)]
 ]
 
+--
+
+&nbsp;
+
+.center[Support constructive solid geometry]
 
 ???
 code to convert sample yaml file to xml files for DGS
@@ -381,7 +439,10 @@ code to convert sample yaml file to xml files for DGS
 * Simulate incident beam using MCViNE or McStas
 * Sample scattering simulation
 * ** Detector system simulation ** -- generate NeXus files -- reduce by Mantid
+
 --
+&nbsp;
+
 .center[![:scale 85%](../images/basics/composite-detectorsystem.png)]  
 
 ---
@@ -465,9 +526,11 @@ Vanadium plate
 
 * Simulate incident beam using MCViNE or McStas
 * Sample scattering simulation
-* ** Detector system simulation ** -- generate NeXus files -- reduce by Mantid
+* Detector system simulation
+* ** Single crystal: repeat for all \\( \psi \\) angles!!! **
+* Reduction by Mantid
 
-.center[![:scale 100%](../images/CHESS/H00-slices-CHESS_vs_CNCS.png)]
+.center[![:scale 90%](../images/CHESS/H00-slices-CHESS_vs_CNCS.png)]
 
 ???
 Kernels
@@ -479,6 +542,13 @@ Kernels
 # More DGS examples
 
 See http://mcvine.org/examples.html
+
+---
+# More DGS examples - V2O3
+
+&nbsp;
+
+.center[![:scale 105%](../images/V2O3/summary.png)]
 
 ---
 class: split-50
@@ -536,7 +606,7 @@ class: split-50
 ---
 # Sample environments
 
-.center[![:scale 40%](../images/MICAS/schematic.png)]
+.center[![:scale 33%](../images/MICAS/schematic.png)]
 
 * Multiple scattering
 
@@ -544,6 +614,11 @@ class: split-50
 # Multiple scattering
 
 .center[![:scale 50%](../images/basics/sampleassembly.png)]
+
+---
+# Multiple scattering -- Uranium Nitride
+
+.center[![:scale 105%](../images/UN/summary.png)]
 
 ---
 # Multiple scattering - MICAS furnace
@@ -610,26 +685,33 @@ class: split-60
 # Resolution - \\(^4 \mathrm{He}\\) measurement at ARCS
 
 
+
+[//]: # (ARCS resolution - beam monitors)
+
 ---
 # Resolution for Direct Geometry Spectrometers - Powder
 
---
+* Sample with "resolution kernel"
+
+
+
+---
 class: split-60
 
-.right-column[
-Energy spectrum
+# ARCS resolution - comparing to analytical modeling and experiment
 
-![:scale 70%](../images/ARCS/beam-Ei_100-I_E.png)
-
-Cross section
-
-![:scale 70%](../images/ARCS/beam-Ei_100-crosssection.png)
-]
 
 .left-column[
-Beam monitors
+Elastic
 
-![:scale 70%](../images/ARCS/beam-Ei_100-monitors.png)
+.center[![:scale 85%](../images/ARCS/ElasticRes_vs_Freq_FC2.png)]
+]
+
+.right-column[
+Inelastic
+
+.center[![:scale 85%](../images/ARCS/InelasticRes-Comparison.png)]
+.center[![:scale 85%](../images/ARCS/C4H2I2S-IE.png)]
 ]
 
 
@@ -659,7 +741,7 @@ class: split-50
 Inputs
 * simulated beam
 * sample
-* point of interestes: \\(Q\\), \\(E\\)
+* point of interests: \\(Q\\), \\(E\\)
 * settings of \\(Q\\), \\(E\\) axes
 ]
 
@@ -668,7 +750,7 @@ Inputs
 ]
 
 ---
-# Resolution for Direct Geometry Spectrometers - Single crystal
+# Resolution for Direct Geometry Spectrometers - **Single crystal**
 
 .center[![:scale 85%](../images/resolution/ARCS-Si_SC-Ei_100-res_vs_qE-compared_to_diffraction.png)]
 
@@ -765,3 +847,5 @@ class: split-50
 * Alex Dementsov
 ]
 
+---
+# Questions?
