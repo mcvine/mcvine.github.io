@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frequently Asked Questions &#8212; mcvine 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+<div class="header">  
+<table><tr>
+<!--
+<td>
+<div style="text-align: left; padding: 7px 7px 10px 10px">
+<a href="index.html"><img src="_static/mcvine.png" border="0" alt="py4sci"
+  height="80"/></a>
+</div>
+</td>
+-->
+<td style="">
+<div class="banner">MCViNE: Monte Carlo VIrtual Neutron Experiment</div>
+</td>
+</tr>
+</table>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="search.html">search</a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Frequently Asked Questions</a></li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#how-do-i">How do I …</a></li>
+<li><a class="reference internal" href="#why-do-i">Why do I…</a></li>
+<li><a class="reference internal" href="#other-faqs">Other FAQs</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/FAQ.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="frequently-asked-questions">
+<span id="faq"></span><h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-do-i">
+<h2>How do I …<a class="headerlink" href="#how-do-i" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>… Use a mcstas component that I wrote myself?</dt><dd><p>An automatic tools is available to wrap a mcstas component to a mcvine component.
+Please take a look at <a class="reference internal" href="Components.html#user-defined-mcstas-components"><span class="std std-ref">User-defined mcstas components</span></a>.</p>
+</dd>
+<dt>… Check whether parallel mcvine simulation is available for my system?</dt><dd><p>Run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mpirun -np 2 python -c &quot;import mpi; print mpi.world().rank&quot;
+</pre></div>
+</div>
+<p>If you see two number “0” and “1” (random sequence), parallel mcvine is available.</p>
+</dd>
+<dt>… Get help on the instrument simulation application I have created?</dt><dd><p>Say if your application is mysimapp.py, you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mysimapp.py -h
+</pre></div>
+</div>
+<p>to see what this app is about, and the available options.
+For help on common simulation application options, please refer
+to <a class="reference internal" href="Fundamentals.html#fundamentals-instrument"><span class="std std-ref">Instrument</span></a>; for a tutorial, see
+<a class="reference internal" href="Tutorials-basics.html#create-sim-app"><span class="std std-ref">Create and run your instrument simulation application</span></a>.</p>
+</dd>
+<dt>… Rescue my instrument simulations?</dt><dd><p>Sometimes SEQ beam simulation may fail or stall, especially if the number of MC count is large.
+In that case, you can rescue the simulation results by</p>
+<ol class="arabic">
+<li><p>Killing the process if necessary</p></li>
+<li><p>Merge simulated neutrons:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /path/to/sim/_m2sout
+$ python -c &quot;from mcni.neutron_storage import merge_and_normalize as man; man(&#39;neutrons&#39;, &#39;.&#39;)&quot;
+</pre></div>
+</div>
+</li>
+<li><p>Merge monitor outputs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -c &quot;from mcni.components.HistogramBasedMonitorMixin import merge_and_normalize as man; man(&#39;IE.h5&#39;, &#39;.&#39;); man(&#39;mon1-tof.h5&#39;, &#39;.&#39;); man(&#39;mon2-tof.h5&#39;, &#39;.&#39;) &quot;
+</pre></div>
+</div>
+</li>
+<li><p>Run post-processing script (assume Ei=100. please change accordingly):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /path/to/sim/
+$ python -c &quot;from mcvine.instruments.SEQUOIA import beam_postprocessing as bpp; bpp.run(&#39;./_m2sout&#39;, &#39;./out&#39;, 100.)&quot;
+</pre></div>
+</div>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="why-do-i">
+<h2>Why do I…<a class="headerlink" href="#why-do-i" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>… get nothing from my simulation?</dt><dd><p>You may want to check if your configuration is done correctly.
+A good thing to check is if the components are assign correctly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mysimapp.py --help-persistence
+</pre></div>
+</div>
+<p>It prints out looking-up of all components (not only neutron components, but also
+other components that help make the simulation application possible,
+such as geometer).
+You may see hints of why some components are not really loaded successfully.</p>
+</dd>
+<dt>… get MemoryError?</dt><dd><p>You may need to reduce buffer_size. It determines how many neutrons are
+kept in the memory. To set buffer_size to, say, one million neutrons, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">1000000</span>
+</pre></div>
+</div>
+<p>(Most simulation applications accept this option, but some workflow scripts
+do not accept this option.)
+Optimal buffer_size depends on the memory for the computing nodes.
+For a machine of 1G memory, the maximum buffer_size would be
+1e9/100 = 1e7 neutrons if only one processor is used.
+If, however, you are running parallely on a machine of 10 cpus and 2G
+ram, the maximum buffer_size would be 2e9/100/10 = 2e6.
+It also depends on factors such as
+whether the option “multiple-scattering” is turned on.
+If “multiple-scattering” is on, it is safer to divide the number
+you got by another factor of 10.
+If you are running a MCViNE workflow, sometimes it could be more convenient to
+use environment variable to set the maximum neutron buffer size like
+this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MCVINE_MAX_NEUTRON_BUFFER_SIZE</span><span class="o">=</span><span class="mi">100000</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="other-faqs">
+<h2>Other FAQs<a class="headerlink" href="#other-faqs" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>… What does the intensities at monitors mean?</dt><dd><p>Please refer to <a class="reference internal" href="Fundamentals.html#fundamentals-simulated-intensities"><span class="std std-ref">Simulated intensities</span></a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="search.html">search</a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Frequently Asked Questions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006-2016, Jiao Lin, Michael Aivazis, and Brent Fultz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+    </div>
+  </body>
+</html>
