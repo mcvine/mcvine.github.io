@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Analytical E(Q) &#8212; mcvine 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+<div class="header">  
+<table><tr>
+<!--
+<td>
+<div style="text-align: left; padding: 7px 7px 10px 10px">
+<a href="../index.html"><img src="../_static/mcvine.png" border="0" alt="py4sci"
+  height="80"/></a>
+</div>
+</td>
+-->
+<td style="">
+<div class="banner">MCViNE: Monte Carlo VIrtual Neutron Experiment</div>
+</td>
+</tr>
+</table>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="../index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="../search.html">search</a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Analytical E(Q)</a></li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/kernels/E_Q.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="analytical-e-q">
+<span id="kernel-e-q"></span><h1>Analytical E(Q)<a class="headerlink" href="#analytical-e-q" title="Permalink to this headline">¶</a></h1>
+<p>This kernel scatters neutrons according to a
+<span class="math notranslate nohighlight">\(S(|\vec{Q}|,E)=S(|\vec{Q}|) \delta(E-E(|\vec{Q}|))\)</span> input.
+Both <span class="math notranslate nohighlight">\(S(|\vec{Q}|)\)</span> and <span class="math notranslate nohighlight">\(E(|\vec{Q}|)\)</span>
+are analytical functions.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>Qmin: Minimum momentum transfer</p></li>
+<li><p>Qmax: Minimum momentum transfer</p></li>
+<li><p>E_Q: E(Q) expression. for example: 30+5*sin(Q)</p></li>
+<li><p>S_Q: S(Q) expression. for example: 1</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">E_Q_Kernel</span>
+   <span class="n">E_Q</span><span class="o">=</span><span class="s2">&quot;30+5*sin(Q)&quot;</span>
+   <span class="n">S_Q</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+   <span class="n">Qmin</span><span class="o">=</span><span class="s2">&quot;0./angstrom&quot;</span>
+   <span class="n">Qmax</span><span class="o">=</span><span class="s2">&quot;10./angstrom&quot;</span>
+   <span class="o">/&gt;</span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="../index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="../search.html">search</a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Analytical E(Q)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006-2016, Jiao Lin, Michael Aivazis, and Brent Fultz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

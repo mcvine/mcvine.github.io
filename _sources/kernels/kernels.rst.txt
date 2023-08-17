@@ -1,0 +1,24 @@
+.. _kernels:
+
+Kernels
+=======
+
+.. note::
+   Developers: please also read :ref:`Kernel implementation <kernel-implementation>`.
+
+
+.. toctree::
+   :maxdepth: 2
+
+  CoherentInelasticPhononScattering_SingleXtal
+  CoherentInelasticPhonon_PolyXtal
+  ConstantEnergyTransfer
+  ConstantQE
+  E_Q
+  E_vQ
+  IncoherentElasticPhonon_PolyXtal
+  IncoherentInelasticPhonon_PolyXtal
+  Isotropic
+  SQE
+  SimplePowderDiffraction
+

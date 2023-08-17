@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Incoherent Elastic scattering for polycrystal &#8212; mcvine 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+<div class="header">  
+<table><tr>
+<!--
+<td>
+<div style="text-align: left; padding: 7px 7px 10px 10px">
+<a href="../index.html"><img src="../_static/mcvine.png" border="0" alt="py4sci"
+  height="80"/></a>
+</div>
+</td>
+-->
+<td style="">
+<div class="banner">MCViNE: Monte Carlo VIrtual Neutron Experiment</div>
+</td>
+</tr>
+</table>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="../index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="../search.html">search</a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Incoherent Elastic scattering for polycrystal</a></li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Incoherent Elastic scattering for polycrystal</a><ul>
+<li><a class="reference internal" href="#explanation-of-dw-core">Explanation of <cite>dw_core</cite></a></li>
+<li><a class="reference internal" href="#tutorial">Tutorial</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/kernels/IncoherentElasticPhonon_PolyXtal.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="incoherent-elastic-scattering-for-polycrystal">
+<span id="kernel-incoh-el-phonon-polyxtal"></span><h1>Incoherent Elastic scattering for polycrystal<a class="headerlink" href="#incoherent-elastic-scattering-for-polycrystal" title="Permalink to this headline">¶</a></h1>
+<p>This kernel is for Incoherent Elastic scattering for a polycrystalline sample.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p><cite>dw_core</cite>: average displacement squared projected to <span class="math notranslate nohighlight">\(Q\)</span> (<span class="math notranslate nohighlight">\(&lt;u^2_Q&gt;\)</span>)</p></li>
+<li><p><cite>scattering_xs</cite>: total scattering cross section of a unit cell</p></li>
+<li><p><cite>absorption_xs</cite>: total absorption cross section of a unit cell</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Phonon_IncoherentElastic_Kernel</span>
+       <span class="n">dw_core</span><span class="o">=</span><span class="s2">&quot;0.0073*angstrom**2&quot;</span>
+       <span class="n">scattering_xs</span><span class="o">=</span><span class="s2">&quot;3.71*barn&quot;</span>
+       <span class="n">absorption_xs</span><span class="o">=</span><span class="s2">&quot;0.063*barn&quot;</span>
+       <span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">Phonon_IncoherentElastic_Kernel</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<section id="explanation-of-dw-core">
+<h2>Explanation of <cite>dw_core</cite><a class="headerlink" href="#explanation-of-dw-core" title="Permalink to this headline">¶</a></h2>
+<p>Debye Waller factor is written as <span class="math notranslate nohighlight">\(exp(-2W)\)</span>,
+where <span class="math notranslate nohighlight">\(2W = &lt;u_Q^2&gt; Q^2\)</span>.
+The <cite>dw_core</cite> quantity is <span class="math notranslate nohighlight">\(&lt;u_Q^2&gt;\)</span>,
+and in case of cubic crystal,
+equal to <span class="math notranslate nohighlight">\(\frac{1}{3} &lt;u^2&gt;\)</span>,
+which can be computed from phonon DOS.</p>
+<p>You can use command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mcvine-debye-waller-core-from-phonon-dos
+</pre></div>
+</div>
+<p>to calculate <cite>dw_core</cite>.
+Run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mcvine-debye-waller-core-from-phonon-dos -h
+$ mcvine-debye-waller-core-from-phonon-dos --help-properties
+</pre></div>
+</div>
+<p>to get help regarding that command</p>
+</section>
+<section id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
+<p>Learn how to create a powder diffraction kernel using
+<a class="reference external" href="https://nbviewer.jupyter.org/github/mcvine/training/blob/master/sample/Al_powder-Incoherent-Elastic.ipynb">the example notebook</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="http://mcvine.org">MCViNE</a> &raquo; &nbsp;</li>
+        <li><a href="../index.html">Documentation</a> &raquo; &nbsp;</li>
+        <li><a href="../search.html">search</a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Incoherent Elastic scattering for polycrystal</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2006-2016, Jiao Lin, Michael Aivazis, and Brent Fultz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>
