@@ -1,6 +1,7 @@
 <html> <head>
 <title>Usage</title>
 <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="mcvine.js"></script>
 <link rel="stylesheet" type="text/css" href="mcvine.css">
 </head>
@@ -11,16 +12,38 @@
 
 <h1>MCViNE Usage</h1>
   
-<div style="font-size:large">
-<ul>
-<li>  <b>SNS users</b>, please run
+<div id="installation" class="markdown-content">
+### Install using conda
+
+First install miniconda from [here](https://www.anaconda.com/docs/getting-started/miniconda/main)
+
+Then add the relevant channels:
+
+```
+$ conda config --add channels conda-forge
+$ conda config --add channels mcvine
+$ conda config --add channels mantid
+```
+
+Then create an environment and install the packages:
+
+```
+$ conda create -n mcvine python=3.10 mcvine
+```
+
+Activate the environment:
+
+```
+$ conda activate mcvine
+```
+
+### Using MCViNE
+
+* **SNS users**, please run
   <a target="_blank" href="https://jupyter.sns.gov/user/{UID}/notebooks/notebooks/Welcome.ipynb">the welcome notebook</a>
   to obtain the latest notebook examples, and then 
   <a target="_blank" href="https://jupyter.sns.gov/user/{UID}/notebooks/notebooks/mcvine/usage%20at%20SNS.ipynb">start here</a>
-</li>
-<li>
-  All other users, it is probably easiest to <a href="https://github.com/mcvine/training">start here</a>
-</li>
+* All other users, it is probably easiest to <a href="https://github.com/mcvine/training">start here</a>
 </div>
 
 <hr>
@@ -156,6 +179,15 @@
 
 <script>
   mcvine.init();
+  const markdownElements = document.getElementsByClassName('markdown-content');
+  for (let element of markdownElements) {
+    element.innerHTML = marked.parse(element.innerHTML);
+    // Add target="_blank" to all links in markdown content
+    const links = element.getElementsByTagName('a');
+    for (let link of links) {
+      link.setAttribute('target', '_blank');
+    }
+  }
 </script>
 
 </body>
