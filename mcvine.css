@@ -31,6 +31,12 @@ body div.top{
     padding: 0px;
     width: 961px;
 }
+
+#header div.logo img {
+    height: 40px;
+    padding: 3px 0 3px 12px;
+}
+
 #page {
     width: 901px;
     min-height: 700px;
